@@ -31,4 +31,34 @@ object OOPExercices extends App {
   println(novel.authorAge)
   println(novel.copy(1999))
 
+  class Counter(val initialValue: Int) {
+
+    def currentCount: Int = initialValue
+    def increment: Counter = new Counter( initialValue + 1)
+    def decrement: Counter = new Counter(initialValue - 1)
+    def increment(incrementalAmount: Int) :Counter = new Counter( initialValue + incrementalAmount)
+    def decrement(decrementalAmount: Int) :Counter = new Counter(initialValue - decrementalAmount)
+  }
+
+  val counter = new Counter(3)
+  println(counter)
+  println(counter.increment.currentCount)
+  println(counter.decrement.currentCount)
+  println(counter.increment(3).currentCount)
+  println(counter.decrement(3).currentCount)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
