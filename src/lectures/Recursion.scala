@@ -27,18 +27,25 @@ object Recursion extends App {
 
 
   def tailrecFibonacciNumber(n: Int):Int = {
-    def fibonacciNumberHelper(x: Int, lastFibonacci: Int, beforeLastFibonacci: Int): Int = {
-      if (x <= 2) lastFibonacci
-//      else {
-////        fibonacciNumberHelper(x - 1???, lastFibonacci + beforeLastFibonacci)
-////        beforeLastFibonacci = lastFibonacci
-////        lastFibonacci = x-1
-//      }
-      fibonacciNumberHelper(n, 1,0)
-    }
-  }
-  println(tailrecFibonacciNumber(3))
+    def fibonacciNumberHelper(x: Int, lastFibonacci: Int, beforeLastFibonacci: Int): Int =
+      if (x  >= n) lastFibonacci
+      else fibonacciNumberHelper(x + 1, lastFibonacci + beforeLastFibonacci,lastFibonacci )
 
-  //  create isprime test function using tailrecursion
+    if (n <= 2) 1
+    else fibonacciNumberHelper(2 ,1 ,1)
+  }
+  println(tailrecFibonacciNumber(6))
+
+  def tailrecIsPrime( n: Int) = {
+    def isPrimeHelper(x: Int, isStillPrime: Boolean): Boolean = {
+      if (!isStillPrime) false
+      else if (x <= 1) true
+      else isPrimeHelper(x - 1 , n % x != 0 && isStillPrime)
+    }
+    isPrimeHelper(n / 2, true)
+  }
+  println(tailrecIsPrime(2003))
+  println(tailrecIsPrime(629))
+
 }
 
