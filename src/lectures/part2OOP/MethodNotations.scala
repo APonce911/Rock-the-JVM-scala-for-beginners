@@ -1,7 +1,8 @@
 package lectures.part2OOP
 
 object MethodNotations extends  App {
-
+  import scala.language.postfixOps
+  
   class Person(val name: String, favoriteMovie: String, val age: Int = 0) {
     def likes(movie: String): Boolean = movie == favoriteMovie
     def +(person: Person): String = s"${this.name} is hanging out with ${person.name}"
