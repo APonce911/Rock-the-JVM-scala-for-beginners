@@ -2,7 +2,7 @@ package lectures.part2OOP
 
 import lectures.part2OOP.Objects.Person
 
-object InheritanceAndTraits extends App {
+object Inheritance extends App {
 
   class Person(val name: String,val  age: Int ) {
     def this(name: String) = this(name, 2)
