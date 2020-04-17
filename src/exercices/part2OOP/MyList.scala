@@ -1,7 +1,7 @@
 package exercices.part2OOP
 
 object MyList extends App {
-  abstract class MyList {
+  abstract class MyList extends {
     /*
       TO DO Methods
       MyList describe a list of integers
@@ -14,9 +14,9 @@ object MyList extends App {
 
      */
     def head: Int
-    def tail: List[Int]
+    def tail: MyList
     def isEmpty: Boolean
-    def add(int : Int): List[Int]
+    def add(int : Int): MyList
     def toString: String
 
   }
