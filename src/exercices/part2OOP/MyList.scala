@@ -19,22 +19,29 @@ object MyList extends App {
     def tail: MyList
     def isEmpty: Boolean
     def add(int : Int): MyList
-//    def toString: String
-
+    def printElements: String
+    override def toString: String = "[" + printElements + "]"
   }
   object Empty extends MyList {
     def head: Int = throw new NoSuchElementException
     def tail: MyList = throw new NoSuchElementException
     def isEmpty: Boolean = true
     def add(element : Int): MyList = new Cons(element, Empty)
+    def printElements: String = ""
   }
   class Cons(val head: Int, val tail: MyList) extends MyList {
     def isEmpty: Boolean = false
     def add(element : Int): MyList = new Cons(element, this)
+    def printElements: String =
+      if (tail.isEmpty) "" + head
+      else head + ", " + tail.printElements
   }
 
   val myList  = new Cons(1, Empty)
   println(myList)
   println(myList.head)
+  val myList2 = myList.add(4)
+  println(myList2.head)
+  println(myList2.toString)
 
 }
