@@ -1,7 +1,9 @@
 package exercices.part2OOP
 
+import exercices.part2OOP.MyList.Cons
+
 object MyList extends App {
-  abstract class MyList extends {
+  abstract class MyList {
     /*
       TO DO Methods
       MyList describe a list of integers
@@ -17,12 +19,24 @@ object MyList extends App {
     def tail: MyList
     def isEmpty: Boolean
     def add(int : Int): MyList
-    def toString: String
+//    def toString: String
 
   }
-//  class MyIntList extends MyList
-//  val myIntList  = new MyIntList()
-//  println(myIntList)
-//  println(myIntList.isEmpty)
+  object Empty extends MyList {
+    def head: Int = throw new NoSuchElementException
+    def tail: MyList = throw new NoSuchElementException
+    def isEmpty: Boolean = true
+    def add(element : Int): MyList = new Cons(element, Empty)
+  }
+  class Cons(h: Int, t: MyList) extends MyList {
+    def head: Int = h
+    def tail: MyList = t
+    def isEmpty: Boolean = false
+    def add(element : Int): MyList = new Cons(element, this)
+  }
+
+  val myList  = new Cons(1, Empty)
+  println(myList)
+  println(myList.head)
 
 }
