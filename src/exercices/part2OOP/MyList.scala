@@ -28,9 +28,7 @@ object MyList extends App {
     def isEmpty: Boolean = true
     def add(element : Int): MyList = new Cons(element, Empty)
   }
-  class Cons(h: Int, t: MyList) extends MyList {
-    def head: Int = h
-    def tail: MyList = t
+  class Cons(val head: Int, val tail: MyList) extends MyList {
     def isEmpty: Boolean = false
     def add(element : Int): MyList = new Cons(element, this)
   }
